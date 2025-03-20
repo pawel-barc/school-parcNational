@@ -119,8 +119,8 @@ class PaymentController {
                 ]],
                 'mode' => 'payment',
                 'discounts' => $discounts,
-                'success_url' => 'http://localhost/parcNational/reservation_history?campsite_id=' . $campsite_id . '&status=success',
-                'cancel_url' => 'http://localhost/parcNational/reservation_history?campsite_id=' . $campsite_id . '&status=cancel',
+                'success_url' => 'http://school-parcnational.local/reservation_history?campsite_id=' . $campsite_id . '&status=success',
+                'cancel_url' => 'http://school-parcnational.local/reservation_history?campsite_id=' . $campsite_id . '&status=cancel',
             ]);
             header("Location: " . $checkout_session->url);
             exit();

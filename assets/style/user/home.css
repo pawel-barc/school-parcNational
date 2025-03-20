@@ -16,7 +16,10 @@
     position: absolute; /* Positionnement absolu pour superposer le texte */
     top: 50%; /* Centrer verticalement */
     left: 50%; /* Centrer horizontalement */
-    transform: translate(-50%, -50%); /* Ajustement pour le centrer parfaitement */
+    transform: translate(
+      -50%,
+      -50%
+    ); /* Ajustement pour le centrer parfaitement */
     text-align: center; /* Centrer le texte */
     padding: 25px;
   }
@@ -52,7 +55,10 @@
     position: absolute; /* Positionnement absolu pour superposer le texte */
     top: 50%; /* Centrer verticalement */
     left: 50%; /* Centrer horizontalement */
-    transform: translate(-50%, -50%); /* Ajustement pour le centrer parfaitement */
+    transform: translate(
+      -50%,
+      -50%
+    ); /* Ajustement pour le centrer parfaitement */
     color: white; /* Couleur du texte */
     text-align: center; /* Centrer le texte */
     padding: 25px;
@@ -143,7 +149,9 @@
   }
   .presentation > article > div:hover {
     opacity: 1;
-    transform: scale(1.1); /* Utilise transform: scale() avec une valeur numérique */
+    transform: scale(
+      1.1
+    ); /* Utilise transform: scale() avec une valeur numérique */
   }
 }
 
@@ -159,23 +167,23 @@
     gap: 25px;
   }
   .card-home:nth-child(1) {
-    background-image: url("/parcNational/assets/img/category_home/coves.jpg");
+    background-image: url("/assets/img/category_home/coves.jpg");
   }
 
   .card-home:nth-child(2) {
-    background-image: url("/parcNational/assets/img/category_home/ressources.png");
+    background-image: url("/assets/img/category_home/ressources.png");
   }
 
   .card-home:nth-child(3) {
-    background-image: url("/parcNational/assets/img/category_home/trails.jpg");
+    background-image: url("/assets/img/category_home/trails.jpg");
   }
 
   .card-home:nth-child(4) {
-    background-image: url("/parcNational/assets/img/category_home/campsite.png");
+    background-image: url("/assets/img/category_home/campsite.png");
   }
 
   .card-home:nth-child(5) {
-    background-image: url("/parcNational/assets/img/category_home/map.png");
+    background-image: url("/assets/img/category_home/map.png");
   }
   /* Les mêmes styles communs pour toutes les cartes */
   .card-home {
@@ -216,27 +224,29 @@
     gap: 10px;
   }
   .container-category > div:not(:hover) {
-    transform: scale(0.9); /* Utilise transform: scale() avec une valeur numérique */
+    transform: scale(
+      0.9
+    ); /* Utilise transform: scale() avec une valeur numérique */
   }
 
   .card-home:nth-child(1) {
-    background-image: url("/parcNational/assets/img/category_home/coves.jpg");
+    background-image: url("/assets/img/category_home/coves.jpg");
   }
 
   .card-home:nth-child(2) {
-    background-image: url("/parcNational/assets/img/category_home/ressources.png");
+    background-image: url("/assets/img/category_home/ressources.png");
   }
 
   .card-home:nth-child(3) {
-    background-image: url("/parcNational/assets/img/category_home/trails.jpg");
+    background-image: url("/assets/img/category_home/trails.jpg");
   }
 
   .card-home:nth-child(4) {
-    background-image: url("/parcNational/assets/img/category_home/campsite.png");
+    background-image: url("/assets/img/category_home/campsite.png");
   }
 
   .card-home:nth-child(5) {
-    background-image: url("/parcNational/assets/img/category_home/map.png");
+    background-image: url("/assets/img/category_home/map.png");
   }
 
   /* Les mêmes styles communs pour toutes les cartes */
@@ -261,7 +271,9 @@
   /* Applique cette règle à toutes les cartes dans le même parent sauf celle survolée */
   .container-category:hover .card-home:not(:hover) {
     opacity: 0.8; /* Réduit l'opacité des autres cartes */
-    transform: scale(0.9); /* Assure que les autres cartes ne sont pas agrandies */
+    transform: scale(
+      0.9
+    ); /* Assure que les autres cartes ne sont pas agrandies */
   }
   .card-title {
     display: flex;

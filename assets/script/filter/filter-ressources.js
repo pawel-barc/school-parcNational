@@ -57,7 +57,7 @@ function applyFilters() {
   const queryString = queryParams.join("&");
 
   // Envoie de la requête pour récupérer les données filtrées
-  fetch(`/parcNational/data/data_filter_ressources.php?${queryString}`)
+  fetch(`/data/data_filter_ressources.php?${queryString}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error("Network response was not ok: " + response.statusText);
@@ -111,7 +111,9 @@ function updateRessourcesDisplay(data) {
 
       card.innerHTML = `
         <div class="card_top">
-          <a href="ressourceDetails?id=${encodeURIComponent(item.ressource_id)}">
+          <a href="ressourceDetails?id=${encodeURIComponent(
+            item.ressource_id
+          )}">
             <img class="pic-ressources" src="${item.image}" alt="${item.name}">
           </a>
         </div>
@@ -128,7 +130,9 @@ function updateRessourcesDisplay(data) {
 
         <div class="btn-container">
             <button class="btn-details">
-                <a href="ressourceDetails?id=${encodeURIComponent(item.ressource_id)}">
+                <a href="ressourceDetails?id=${encodeURIComponent(
+                  item.ressource_id
+                )}">
                     En découvir plus !
                 </a>
             </button>
@@ -144,7 +148,7 @@ function updateRessourcesDisplay(data) {
 
 // Fonction pour récupérer tous les sentiers
 function fetchAllressources() {
-  fetch("/parcNational/data/data_filter_ressources.php") // URL de récupération des données
+  fetch("/data/data_filter_ressources.php") // URL de récupération des données
     .then((response) => {
       if (!response.ok) {
         throw new Error("Erreur lors de la récupération des données");
@@ -179,7 +183,7 @@ function removeAll() {
     });
 
     // Récupérer toutes les données et les afficher
-    fetch("/parcNational/data/data_filter_ressources.php")
+    fetch("/data/data_filter_ressources.php")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Erreur lors de la récupération des données");

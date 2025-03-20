@@ -20,7 +20,7 @@
     </div>
     <?php endif; ?>
     <!--The profile form for current user's information updating -->
-    <form class="form" action="/parcNational/update-profile" method="post">
+    <form class="form" action="/update-profile" method="post">
         <section class="form_container">
             <!-- First section conteining civil data and address-->  
             <section class="civil-address">

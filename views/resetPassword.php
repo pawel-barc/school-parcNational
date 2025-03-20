@@ -22,7 +22,7 @@
         <div class="main-container">
             <h2>Changer votre mot de passe</h2>
             <div class="form-container">
-                <form method="POST" action="/parcNational/reset-password" autocomplete="off">
+                <form method="POST" action="/reset-password" autocomplete="off">
                     <input type="hidden" name="token" value="<?php echo htmlspecialchars($_GET['token'] ?? $_POST['token']); ?>" required>
                     <div class="form-group">
                         <label for="inputPassword"><p>Nouveau mot de passe</p></label>

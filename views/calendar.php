@@ -74,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $user_id !== null) {
     <!-- FORMULAIRE -->
     <div class="calendar-form-container">
         <section class="reservation-section">
-            <form action="/parcNational/payment" method="POST">
+            <form action="/payment" method="POST">
                 <div class="date-fields">
                     <input type="hidden" name="campsite_id" value="<?= $campsite_id; ?>">
                     <div class="date-field">

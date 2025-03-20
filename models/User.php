@@ -27,7 +27,6 @@ class User extends Model{
         $sql = 'SELECT users SET is_active = ?, activation_token = NULL WHERE activation_token = ?';
         $stmt->prepare->pdo($sql);
         $isActive = 1;
-
         return $stmt->execute([$isActive, $token]);
     }
 
@@ -129,10 +128,10 @@ class User extends Model{
 
     public function getReservationsByUser($user_id) {
         $query = $this->pdo->prepare('SELECT r.*, c.name AS campsite_name, c.image AS campsite_image
-                                     FROM reservations r 
-                                     JOIN campsite c ON r.campsite_id = c.campsite_id 
-                                     WHERE r.user_id = :user_id 
-                                     ORDER BY r.reservation_date DESC');
+            FROM reservations r 
+            JOIN campsite c ON r.campsite_id = c.campsite_id 
+            WHERE r.user_id = :user_id 
+            ORDER BY r.reservation_date DESC');
         $query->bindParam(':user_id', $user_id);
         $query->execute();
         return $query->fetchAll(PDO::FETCH_ASSOC);

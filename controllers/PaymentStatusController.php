@@ -52,7 +52,7 @@ class PaymentStatusController extends Controller
             exit();
         }
         $message = "Votre paiement a échoué. Veuillez réessayer.";
-        $this->render('paymentFailed', ['message' => $message]);
+        $this->render('paymentFails', ['message' => $message]);
     }
 
     public function sendConfirmationEmail($userEmail, $randomId, $expiryDate, $name)

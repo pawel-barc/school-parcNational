@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La page de connection</title>
     <link rel="stylesheet" href="assets/style/user/login-page.css">
+    <link rel="stylesheet" href="assets/style/config/_global.css">
     <script src="assets/script/login.js" defer></script>
 </head>
 <body>
@@ -34,7 +35,7 @@
               <label for="inputPassword2">Mot de passe</label>
               <input type="password" name='password' class="form-control" id="inputPassword2">
           </div>
-          <h5><a class="register-text" href="http://localhost/parcNational/forgot-password">Mot de passe oublié ?</a></h5>
+          <h5><a class="register-text" href="http://localhost/forgot-password">Mot de passe oublié ?</a></h5>
           <div class="btn-confirmation"> 
               <button type="submit" class="connect-button">Se connecter</button>
           </div>

@@ -19,8 +19,6 @@ class FavoritesTrailsController extends Controller{
         }else{
             $this->redirect('login');
         }
-
-
     }
 
     public function manageFavoriteTrailAjax() {
@@ -36,7 +34,6 @@ class FavoritesTrailsController extends Controller{
         }else{
             $this->redirect('login');
         }
-
 
     }
 

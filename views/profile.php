@@ -72,7 +72,7 @@
             <div class="left-part">
                 <div class="history-link">
                     <h2 class="title-reservation">Mes résérvations</h2>
-                    <a class="reservation-button" href="http://localhost/parcNational/reservation_history?campsite_id=1&status=success">Historique de réservations</a>
+                    <a class="reservation-button" href="http://school-parcnational.local//reservation_history?campsite_id=1&status=success">Historique de réservations</a>
                 </div>
                 <div class="reservation-container">
                     <?php if(!empty($reservedCampings)): ?>
@@ -104,7 +104,7 @@
                                         <a href="details_trails?id=<?= htmlspecialchars($completedTrail['trail_id']) ?>">
                                             <img class="img-trail" src=<?= htmlspecialchars($completedTrail['image']) ?> alt="la photo de sentier">
                                         </a>
-                                        <a href="/parcNational/manage-completed-trail?trail_id=<?= htmlspecialchars($completedTrail['trail_id']) ?>">
+                                        <a href="/manage-completed-trail?trail_id=<?= htmlspecialchars($completedTrail['trail_id']) ?>">
                                             <p class="delete">Supprimer</p>
                                         </a>
                                     </div>
@@ -132,7 +132,7 @@
                                     <img class="img-trail" src=<?= htmlspecialchars($trail['image']) ?> alt="la photo de sentier">
                                 </a>
                                 <div class="lien-container">
-                                    <a href="/parcNational/manage-favorite-trail?trail_id=<?= htmlspecialchars($trail['trail_id']) ?>">
+                                    <a href="/manage-favorite-trail?trail_id=<?= htmlspecialchars($trail['trail_id']) ?>">
                                         <p class="delete">Supprimer</p>
                                     </a>
                                 </div>    

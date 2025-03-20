@@ -12,7 +12,7 @@
         <?php include "components/_header.php"; ?>
     </header>
     <h1> Home Page User</h1>
-    <a href="/parcNational/view-available-memberships"> Ajout d'abo</a>
+    <a href="/view-available-memberships"> Ajout d'abo</a>
 
     <footer>
         <?php include "components/_footer.php"; ?>

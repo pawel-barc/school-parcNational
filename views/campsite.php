@@ -6,7 +6,7 @@
     <title>Campings</title>
     <link rel="stylesheet" href="assets/style/user/campsite.css">
     <link rel="stylesheet" href="assets/style/config/_filter.css">
-    <link rel="stylesheet" href="assets/style/_global.css">
+    <link rel="stylesheet" href="assets/style/config/_global.css">
     <script src="assets/script/filter/filter-campsite.js" defer></script>
 </head>
 <body>

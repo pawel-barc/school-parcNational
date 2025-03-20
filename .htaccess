@@ -10,7 +10,7 @@
     RewriteCond %{REQUEST_URI} !\.(css|js|png|jpg|jpeg|gif|svg|woff|woff2|ttf|otf|eot)$ [NC]
 
     # Exception pour reservationHistory.php (ou d'autres fichiers spécifiques)
-    RewriteCond %{REQUEST_URI} !^/parcNational/views/reservationHistory.php$
+    RewriteCond %{REQUEST_URI} !^/school-parcNational/views/reservationHistory.php$
 
     # Réécrire toutes les autres requêtes vers index.php
     RewriteRule ^(.*)$ index.php [L,QSA]

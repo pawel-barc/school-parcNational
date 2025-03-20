@@ -1,10 +1,3 @@
-          // <a href="/parcNational/manage-favorite-trail?trail_id=${item.trail_id}" class="fav-btn">
-          //   <img src="assets/icon/favorite-empty.svg" alt="heart icon">
-          // </a>
-          // <a href="/parcNational/manage-completed-trail?trail_id=${
-          //   item.trail_id
-          // }" class="hiking-btn"></a>
-
 //* Attache un event listener 'change' à chaque case à cocher
 const checkboxes = document.getElementsByName("tag");
 checkboxes.forEach(function (checkbox) {
@@ -46,13 +39,19 @@ function applyFilters() {
   // Créer une chaîne de requête
   const queryParams = [];
   if (selectedDifficulties.length > 0) {
-    queryParams.push(`difficulty=${encodeURIComponent(selectedDifficulties.join(","))}`);
+    queryParams.push(
+      `difficulty=${encodeURIComponent(selectedDifficulties.join(","))}`
+    );
   }
   if (selectedStatuses.length > 0) {
-    queryParams.push(`status=${encodeURIComponent(selectedStatuses.join(","))}`);
+    queryParams.push(
+      `status=${encodeURIComponent(selectedStatuses.join(","))}`
+    );
   }
   if (selectedLengths.length > 0) {
-    queryParams.push(`length_km=${encodeURIComponent(selectedLengths.join(","))}`);
+    queryParams.push(
+      `length_km=${encodeURIComponent(selectedLengths.join(","))}`
+    );
   }
   if (selectedTimes.length > 0) {
     queryParams.push(`time=${encodeURIComponent(selectedTimes.join(","))}`);
@@ -60,7 +59,7 @@ function applyFilters() {
 
   const queryString = queryParams.join("&");
 
-  fetch(`/parcNational/data/data_filter_trails.php?${queryString}`)
+  fetch(`/data/data_filter_trails.php?${queryString}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error("Network response was not ok: " + response.statusText);
@@ -136,14 +135,16 @@ function updateTrailDisplay(data) {
           </div>
           
           <div class="difficulty_trails">
-            <img src="assets/icon/${getDifficultyIcon(item.difficulty)}" alt="${getDifficultyAlt(
-        item.difficulty
-      )}">
+            <img src="assets/icon/${getDifficultyIcon(
+              item.difficulty
+            )}" alt="${getDifficultyAlt(item.difficulty)}">
             <p>${item.difficulty}</p>
           </div>
 
           <div class="state_trails">
-            <img src="assets/icon/${getStatusIcon(item.status)}" alt="${getStatusAlt(item.status)}">
+            <img src="assets/icon/${getStatusIcon(
+              item.status
+            )}" alt="${getStatusAlt(item.status)}">
             <p>${item.status}</p>
           </div>
         </div>
@@ -157,77 +158,83 @@ function updateTrailDisplay(data) {
           <p>${item.acces}</p>
         </div>
         <div class="fav-btn-container">
-          <a href="/parcNational/manage-favorite-trail-ajax?trail_id=${item.trail_id}" class="fav-btn ${isFavorite ? '' : 'fav-btn-add'}">
+          <a href="/manage-favorite-trail-ajax?trail_id=${
+            item.trail_id
+          }" class="fav-btn ${isFavorite ? "" : "fav-btn-add"}">
             <img src="assets/icon/favorite-fill.svg" alt="heart icon">
           </a>
-          <a href="/parcNational/manage-completed-trail-ajax?trail_id=${item.trail_id}" class="hiking-btn ${isCompleted ? '' : 'hiking-btn-add'}">
+          <a href="/manage-completed-trail-ajax?trail_id=${
+            item.trail_id
+          }" class="hiking-btn ${isCompleted ? "" : "hiking-btn-add"}">
             <img src="assets/icon/hiking.svg" alt="hiking icon">
           </a>
         </div>
       `;
       // Récupère les boutons pour gérer l'ajout aux favoris et marquer comme complété
-      const addFavoriteButton = card.querySelector('.fav-btn');
-      const addCompletedButton = card.querySelector('.hiking-btn');
+      const addFavoriteButton = card.querySelector(".fav-btn");
+      const addCompletedButton = card.querySelector(".hiking-btn");
       // Fonction pour ajouter le sentier aux favoris
       function addTrailToFavorite(e) {
         e.preventDefault();
-        if(isLoggedIn){
-          fetch(addFavoriteButton.getAttribute('href'))
-            .then(function () {
-              addFavoriteButton.classList.remove('fav-btn-add');
-              addFavoriteButton.removeEventListener('click', addTrailToFavorite);
-              addFavoriteButton.addEventListener('click', deleteFavoriteButton);
-            });
-        }else{
-            window.location.href = '/parcNational/login';
+        if (isLoggedIn) {
+          fetch(addFavoriteButton.getAttribute("href")).then(function () {
+            addFavoriteButton.classList.remove("fav-btn-add");
+            addFavoriteButton.removeEventListener("click", addTrailToFavorite);
+            addFavoriteButton.addEventListener("click", deleteFavoriteButton);
+          });
+        } else {
+          window.location.href = "/login";
         }
       }
       // Fonction pour retirer le sentier des favoris
       function deleteFavoriteButton(e) {
         e.preventDefault();
-        fetch(addFavoriteButton.getAttribute('href'))
-          .then(function () {
-            addFavoriteButton.classList.add('fav-btn-add');
-            addFavoriteButton.removeEventListener('click', deleteFavoriteButton);
-            addFavoriteButton.addEventListener('click', addTrailToFavorite);
-          });
+        fetch(addFavoriteButton.getAttribute("href")).then(function () {
+          addFavoriteButton.classList.add("fav-btn-add");
+          addFavoriteButton.removeEventListener("click", deleteFavoriteButton);
+          addFavoriteButton.addEventListener("click", addTrailToFavorite);
+        });
       }
       // Fonction pour marquer le sentier comme complété
       function addTrailToCompleted(e) {
         e.preventDefault();
-        if(isLoggedIn){
-          fetch(addCompletedButton.getAttribute('href'))
-            .then(function () {
-              addCompletedButton.classList.remove('hiking-btn-add');
-              addCompletedButton.removeEventListener('click', addTrailToCompleted);
-              addCompletedButton.addEventListener('click', deleteCompletedButton);
-            });
-        }else{
+        if (isLoggedIn) {
+          fetch(addCompletedButton.getAttribute("href")).then(function () {
+            addCompletedButton.classList.remove("hiking-btn-add");
+            addCompletedButton.removeEventListener(
+              "click",
+              addTrailToCompleted
+            );
+            addCompletedButton.addEventListener("click", deleteCompletedButton);
+          });
+        } else {
           // Redirection vers la page de connexion si non connecté
-            window.location.href = '/parcNational/login';
+          window.location.href = "/login";
         }
       }
       // Fonction pour annuler la complétion du sentier
       function deleteCompletedButton(e) {
         e.preventDefault();
-        fetch(addCompletedButton.getAttribute('href'))
-          .then(function () {
-            addCompletedButton.classList.add('hiking-btn-add');
-            addCompletedButton.removeEventListener('click', deleteCompletedButton);
-            addCompletedButton.addEventListener('click', addTrailToCompleted);
-          });
+        fetch(addCompletedButton.getAttribute("href")).then(function () {
+          addCompletedButton.classList.add("hiking-btn-add");
+          addCompletedButton.removeEventListener(
+            "click",
+            deleteCompletedButton
+          );
+          addCompletedButton.addEventListener("click", addTrailToCompleted);
+        });
       }
 
       if (isFavorite) {
-        addFavoriteButton.addEventListener('click', deleteFavoriteButton);
+        addFavoriteButton.addEventListener("click", deleteFavoriteButton);
       } else {
-        addFavoriteButton.addEventListener('click', addTrailToFavorite);
+        addFavoriteButton.addEventListener("click", addTrailToFavorite);
       }
 
       if (isCompleted) {
-        addCompletedButton.addEventListener('click', deleteCompletedButton);
+        addCompletedButton.addEventListener("click", deleteCompletedButton);
       } else {
-        addCompletedButton.addEventListener('click', addTrailToCompleted);
+        addCompletedButton.addEventListener("click", addTrailToCompleted);
       }
 
       resultsContainer.appendChild(card);
@@ -295,7 +302,7 @@ function getStatusAlt(status) {
 
 // Fonction pour récupérer tous les sentiers
 function fetchAllTrails() {
-  fetch("/parcNational/data/data_filter_trails.php") // URL de récupération des données
+  fetch("/data/data_filter_trails.php") // URL de récupération des données
     .then((response) => {
       if (!response.ok) {
         throw new Error("Erreur lors de la récupération des données");
@@ -330,7 +337,7 @@ function removeAll() {
     });
 
     // Récupérer toutes les données et les afficher
-    fetch("/parcNational/data/data_filter_trails.php")
+    fetch("/data/data_filter_trails.php")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Erreur lors de la récupération des données");
