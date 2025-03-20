@@ -20,11 +20,11 @@
                 <li><img src="assets/icon/admin.svg" alt="icon admin"><a href="manage_admin">Gestion des Administrateurs</a></li>
                 <li><img src="assets/icon/users.svg" alt="icon users"><a href="manage_users">Gestion des Utilisateurs</a></li>
                 <li><img src="assets/icon/hiking.svg" alt="icon hiking"><a href="manage_trails">Gestion des Sentiers</a></li>
-                <li><img src="assets/icon/campsite.svg" alt="icon campsite"><a href="manage_campsite">Gestion des Campings</a></li>
+                <li><img src="assets/icon/campsite.svg" alt="icon campsite"><a href="manage_campsites">Gestion des Campings</a></li>
                 <li><img src="assets/icon/ressource.svg" alt="icon ressource"><a href="manage_ressources">Gestion des Ressources</a></li>
                 <li><img src="assets/icon/rapport.svg" alt="icon rapport"><a href="manage_reports">Gestion des Rapports</a></li>
                 <li><img src="assets/icon/card_membership.svg" alt="icon card_membership"><a href="manage_ship">Gestion des Abonnements</a></li>
-                <li><img src="assets/icon/news.svg" alt="icon news"><a href="manage_news">Gestion des Articles</a></li>
+                <li><img src="assets/icon/news.svg" alt="icon news"><a href="manage_article">Gestion des Articles</a></li>
             </ul>
         </nav>
     </section>

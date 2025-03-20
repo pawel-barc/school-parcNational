@@ -39,12 +39,13 @@ class AdminReportsController extends Controller
         if ($reportsCount !== false && !empty($reports)) {
             // Passe tous les rapports en une seule fois à la vue
             $this->render('manage_reports', [
-                'total_reports' => $reportsCount['total'],
-                'name_report' => $namereports,
-                'reports' => $reports,  // Tous les rapports sont passés à la vue
+                'total_reports' => $reportsCount['total'] ?? "",
+                'name_report' => $namereports ?? "",
+                'reports' => $reports ?? "",  // Tous les rapports sont passés à la vue
             ]);
         } else {
-            echo "Erreur lors de la récupération des données.";
+            $this->render('manage_reports');
+            echo "Pas de nouveaux rapports.";
         }
     }
 

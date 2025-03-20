@@ -16,13 +16,13 @@
             <div>
                 <p>Total de rapports enregistrés</p>
                 <img src="assets/icon/file-blank.svg" alt="icon files">
-                <p><?php echo htmlspecialchars($total_reports); ?></div>
+                <p><?php echo htmlspecialchars($total_reports??''); ?></div>
             </div>
 
             <div>
                 <p>Dernier rapport ajouté</p>
                 <img src="assets/icon/file-fill.svg" alt="icon fill file">
-                <p><?php echo htmlspecialchars($name_report); ?></p>
+                <p><?php echo htmlspecialchars($name_report??''); ?></p>
             </div>
 
             <div>
@@ -43,34 +43,40 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($reports as $report): ?>
+                    <?php if (!empty($reports) && is_array($reports)): ?>
+                        <?php foreach ($reports as $report): ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($report['name']); ?></td>
+                                <td><?php echo htmlspecialchars($report['description']); ?></td>
+                                <td>
+                                    <?php 
+                                        // Vérifier et afficher la ressource associée
+                                        if (isset($report['ressource_name']) && !empty($report['ressource_name'])) {
+                                            echo htmlspecialchars($report['ressource_name']);
+                                        } else {
+                                            echo 'Aucune ressource associée';
+                                        }
+                                    ?>
+                                </td>
+                                <td>
+                                    <form method="GET" action="create_reports">
+                                        <input type="hidden" name="report_id" value="<?php echo htmlspecialchars($report['report_id']); ?>">    
+                                        <button class="edit-button" type="submit"><img src="assets/icon/edit.svg" alt="icon edit"></button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form method="POST" action="manage_reports" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce rapport ?');">
+                                        <input type="hidden" name="report_id" value="<?php echo htmlspecialchars($report['report_id']); ?>">    
+                                        <button class="del-button" type="submit"><img src="assets/icon/delete.svg" alt="icon delete"></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php else: ?>
                         <tr>
-                            <td><?php echo htmlspecialchars($report['name']); ?></td>
-                            <td><?php echo htmlspecialchars($report['description']); ?></td>
-                            <td>
-                                <?php 
-                                    // Vérifier et afficher la ressource associée
-                                    if (isset($report['ressource_name']) && !empty($report['ressource_name'])) {
-                                        echo htmlspecialchars($report['ressource_name']);
-                                    } else {
-                                        echo 'Aucune ressource associée';
-                                    }
-                                ?>
-                            </td>
-                            <td>
-                                <form method="GET" action="create_reports">
-                                    <input type="hidden" name="report_id" value="<?php echo htmlspecialchars($report['report_id']); ?>">    
-                                    <button class="edit-button" type="submit"><img src="assets/icon/edit.svg" alt="icon edit"></button>
-                                </form>
-                            </td>
-                            <td>
-                                <form method="POST" action="manage_reports" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce rapport ?');">
-                                    <input type="hidden" name="report_id" value="<?php echo htmlspecialchars($report['report_id']); ?>">    
-                                    <button class="del-button" type="submit"><img src="assets/icon/delete.svg" alt="icon delete"></button>
-                                </form>
-                            </td>
+                            <td colspan="5">Aucun rapport disponible</td>
                         </tr>
-                    <?php endforeach; ?>
+                    <?php endif; ?>            
                 </tbody>
             </table>
         </section>
