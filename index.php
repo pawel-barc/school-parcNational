@@ -34,7 +34,6 @@ $urlArray = explode('?', $url);
 if (isset($routes[$urlArray[0]])) { 
     $className = $routes[$urlArray[0]]['controller'];
     $methodName = $routes[$urlArray[0]]['method'];
-    var_dump($className);
     require_once __DIR__ . '/controllers/' . $className . '.php';
     require_once 'controllers/HomeController.php';
     // Création de l'objet en fonction de la classe

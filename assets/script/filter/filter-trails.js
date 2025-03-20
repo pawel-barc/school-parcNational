@@ -1,6 +1,6 @@
 //* Attache un event listener 'change' à chaque case à cocher
-const checkboxes = document.getElementsByName("tag");
-checkboxes.forEach(function (checkbox) {
+const Trailcheckboxes = document.getElementsByName("tag");
+Trailcheckboxes.forEach(function (checkbox) {
   checkbox.addEventListener("change", function () {
     applyFilters(); // Applique le filtre dès qu'une case est cochée ou décochée
     manageTagDisplay(checkbox); // Gérer l'affichage des tags
@@ -21,7 +21,7 @@ function applyFilters() {
   const selectedTimes = [];
 
   // Vérifie quelles cases sont cochées
-  checkboxes.forEach(function (checkbox) {
+  Trailcheckboxes.forEach(function (checkbox) {
     if (checkbox.checked) {
       // Distinguer les types de filtres par classe
       if (checkbox.classList.contains("difficulty")) {
@@ -103,7 +103,6 @@ function manageTagDisplay(checkbox) {
 
 //* Fonction pour afficher les données filtrées dans la div
 function updateTrailDisplay(data) {
-  console.log(data);
   const resultsContainer = document.getElementById("overflow");
   resultsContainer.innerHTML = ""; // Vider le conteneur des résultats précédents
 
@@ -326,7 +325,7 @@ function removeAll() {
   const remove = document.getElementById("remove-filter");
   remove.addEventListener("click", function () {
     // Supprimer les tags et décocher les cases
-    checkboxes.forEach(function (checkbox) {
+    Trailcheckboxes.forEach(function (checkbox) {
       if (checkbox.checked) {
         checkbox.checked = false;
         const tagToRemove = document.getElementById(`tag-${checkbox.value}`);

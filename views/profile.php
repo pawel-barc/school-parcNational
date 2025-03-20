@@ -79,7 +79,8 @@
                         <?php foreach($reservedCampings as $reservedCamping): ?>
                             <div class="reserved-campings">
                                 <a href="campsiteDetails?id=<?= htmlspecialchars($reservedCamping['campsite_id']) ?>">
-                                    <img src= <?= $reservedCamping['campsite_image']; ?> alt="Image du camping" class="reservation-image"></img></a>
+                                    <img src= <?= $reservedCamping['campsite_image']; ?> alt="Image du camping" class="reservation-image"></img>
+                                </a>
                                 <p><strong>Nom de camping : </strong><?= htmlspecialchars($reservedCamping['campsite_name']) ; ?></p>
                                 <p><strong>Date de debout : </strong><?= date('Y-m-d', strtotime($reservedCamping['start_date'])) ; ?></p>
                                 <p><strong>Date de fin : </strong><?= date('Y-m-d', strtotime($reservedCamping['end_date'])) ; ?></p>
@@ -149,7 +150,7 @@
       <?php include "components/_footer.php"; ?>
     </footer>
     <script>
-        const userData = <?= $userData; ?>;
+        const userData = <?= json_encode($userData, JSON_HEX_TAG); ?>;
     </script>
 </body>
 </html>

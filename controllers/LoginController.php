@@ -228,20 +228,20 @@ class LoginController extends Controller
             $mail->Subject = "Réinitialisation de mot de passe";
             $mail->CharSet = 'UTF-8';
             $mail->Body = "
-    <html>
-    <head>
-        <meta charset='UTF-8'>
-        <title>Réinitialisation de mot de passe</title>
-    </head>
-    <body>
-        <h2>Demande de réinitialisation de mot de passe</h2>
-        <p>Madame/Monsieur: <strong>$name</strong></p>
-        <p>Pour réinitialiser votre mot de passe, veuillez cliquer sur le lien ci-dessous:</p>
-        <p><a href='$resetLink'>Réinitialiser le mot de passe</a></p>
-        <p>Ce lien expirera dans 1 heure.</p>
-    </body>
-    </html>
-";
+                <html>
+                <head>
+                    <meta charset='UTF-8'>
+                    <title>Réinitialisation de mot de passe</title>
+                </head>
+                <body>
+                    <h2>Demande de réinitialisation de mot de passe</h2>
+                    <p>Madame/Monsieur: <strong>$name</strong></p>
+                    <p>Pour réinitialiser votre mot de passe, veuillez cliquer sur le lien ci-dessous:</p>
+                    <p><a href='$resetLink'>Réinitialiser le mot de passe</a></p>
+                    <p>Ce lien expirera dans 1 heure.</p>
+                </body>
+                </html>
+            ";
 
             $mail->send();
         } catch (Exception $e) {

@@ -38,13 +38,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $user_id !== null) {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Réservation - <?= $campsite ? htmlspecialchars($campsite['name']) : 'Camping'; ?></title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.15/index.global.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.15/timegrid.min.css" />
-    <link rel="stylesheet" href="assets/style/_global.css">
+    <link rel="stylesheet" href="assets/style/config/_global.css">
     <link rel="stylesheet" href="assets/style/calendar.css">
 </head>
 
 <body>
+    
     <header>
         <?php include __DIR__ . '/../components/_header.php'; ?>
     </header>
@@ -102,13 +101,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $user_id !== null) {
         <?php include __DIR__ . '/../components/_footer.php'; ?>
     </footer>
 
-    <script> let vacationEvents = <?= json_encode($vacationEvents); ?>; </script>
     <!-- SCRIPTS -->
-    <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.15/index.global.min.js'></script>
-    <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.15/index.global.min.js'></script>
-    <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@6.1.15/index.global.min.js'></script>
-    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@6.1.15/index.global.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/rrule/2.6.8/rrule.min.js"></script>
+    <script> let vacationEvents = <?= json_encode($vacationEvents); ?>; </script>
+     <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.15/index.global.js'></script>
+
     <script src="assets/script/calendar.js"></script>
+    <pre><?php var_dump($vacationEvents); ?></pre>
 </body>
 </html>

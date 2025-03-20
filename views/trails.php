@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="assets/style/config/_global.css">
     <link rel="stylesheet" href="assets/style/config/_filter.css">
     <link rel="stylesheet" href="assets/style/user/trails.css">
-    <script src="assets/script/filter/filter-trails.js" defer></script>
 </head>
 <body>
     <main>
@@ -145,6 +144,7 @@
     <footer>
         <?php include "components/_footer.php"; ?>
     </footer>
+    <script src="assets/script/filter/filter-trails.js"></script>
     <script>
         const isLoggedIn = <?php echo json_encode(isset($_SESSION['user_id'])); ?>;
         const favoriteTrailIds = <?php echo json_encode($favoriteTrailIds); ?>;

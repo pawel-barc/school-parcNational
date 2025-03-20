@@ -18,10 +18,7 @@ $routes = [
         'controller' => 'LoginController',
         'method' => 'loginSaveForm',
     ],
-    'homePageAdmin' => [
-        'controller' => 'HomePageAdminController',
-        'method' => 'homePageAdmin',
-    ],
+
     'logout' => [
         'controller' => 'LoginController',
         'method' => 'logout',
@@ -66,10 +63,6 @@ $routes = [
         'controller' => 'UserMembershipController',
         'method' => 'viewMembership',
     ],
-    'user-memberships' => [
-        'controller' => 'UserMembershipController',
-        'method' => 'subscribeMembership',
-    ],
     'subscribe-membership' => [
         'controller' => 'UserMembershipController',
         'method' => 'subscribeMembership',
@@ -78,45 +71,6 @@ $routes = [
         'controller' => 'UserMembershipController',
         'method' => 'viewAvailableMemberships',
     ],
-    
-    // Routes réservées à l'administration des abonnements
-    'admin-active-memberships-list' => [
-        'controller' => 'AdminMembershipController',
-        'method' => 'viewActiveMemberships'
-    ],
-    'admin-memberships-list' => [
-        'controller' => 'AdminMembershipController',
-        'method' => 'viewMembership',
-    ],
-    'admin-memberships-add' => [
-        'controller' => 'AdminMembershipController',
-        'method' => 'addMembership',
-    ],
-    'admin-memberships-edit' => [
-        'controller' => 'AdminMembershipController',
-        'method' => 'editMembership',
-    ],
-    'admin-memberships-delete' => [
-        'controller' => 'AdminMembershipController',
-        'method' => 'deleteMembership',
-    ],
-    'manage_ship' => [
-        'controller' => 'AdminMembershipController',
-        'method' => 'viewMembership',
-    ],
-
-    // Routes liées à la gestion des pages statiques et du contenu
-
-
-    'payment-success' => [
-        'controller' => 'PaymentStatusController',
-        'method' => 'paymentSuccess',
-    ],
-    'payment-failed' => [
-        'controller' => 'PaymentStatusController',
-        'method' => 'paymentFailed',
-    ],
-
 
     // Routes liées à la gestion des pages statiques et du contenu
     '' => [
@@ -147,9 +101,82 @@ $routes = [
         'controller' => 'MapController',
         'method' => 'map',
     ],
+
+    'calendar' => [
+        'controller' => 'CalendarController',
+        'method' => 'showCalendar',
+    ],
+    'coves' => [
+        'controller' => 'CoveController',
+        'method' => 'getAllCoves',
+    ],
+
+    'ressources' => [
+        'controller' => 'RessourceController',
+        'method' => 'getAllRessources',
+    ],
+    'ressourceDetails' => [
+        'controller' => 'RessourceController',
+        'method' => 'getRessourceById',
+    ],
+
+    'campsite' => [
+        'controller' => 'campsiteController',
+        'method' => 'getAllCampsites',
+    ],
+    'campsiteDetails' => [
+        'controller' => 'CampsiteController',
+        'method' => 'getCampsiteById'
+    ],
+
+    // Panel d'administrateur
+
     'admin_home' => [
         'controller' => 'AdminController',
         'method' => 'home',
+    ],
+
+    'admin_profil' => [
+        'controller' => 'AdminProfilController',
+        'method' => 'editAdminProfile',
+    ],
+    'create_admin' => [
+        'controller' => 'AdminAdminController',
+        'method' => 'createAdmin',
+    ],
+    'homePageAdmin' => [
+        'controller' => 'HomePageAdminController',
+        'method' => 'homePageAdmin',
+    ],
+
+    'manage_admin' => [
+        'controller' => 'AdminAdminController',
+        'method' => 'manageAdmin',
+    ],
+    'create_trails' => [
+        'controller' => 'AdminTrailsController',
+        'method' => 'createTrails',
+    ],
+    'create_campsite' => [
+        'controller' => 'AdminCampsitesController',
+        'method' => 'createCampsites',
+    ],
+    'create_ressources' => [
+        'controller' => 'AdminRessourcesController',
+        'method' => 'createRessources',
+    ],
+    'create_reports' => [
+        'controller' => 'AdminReportsController',
+        'method' => 'createReports',
+    ],
+ 
+    'create_ship' => [
+        'controller' => 'AdminAdminController',
+        'method' => 'addMembership',
+    ],
+    'create_articles' => [
+        'controller' => 'AdminArticleController',
+        'method' => 'createArticle',
     ],
 
     'manage_trails' => [
@@ -181,17 +208,35 @@ $routes = [
         'controller' => 'AdminUsersController',
         'method' => 'manageUsers',
     ],
-    'manage_admin' => [
-        'controller' => 'AdminAdminController',
-        'method' => 'manageAdmin',
-    ],
 
+    // Routes réservées à l'administration des abonnements
+    'admin-active-memberships-list' => [
+        'controller' => 'AdminMembershipController',
+        'method' => 'viewActiveMemberships'
+    ],
+    'admin-memberships-list' => [
+        'controller' => 'AdminMembershipController',
+        'method' => 'viewMembership',
+    ],
+    'admin-memberships-add' => [
+        'controller' => 'AdminMembershipController',
+        'method' => 'addMembership',
+    ],
+    'admin-memberships-edit' => [
+        'controller' => 'AdminMembershipController',
+        'method' => 'editMembership',
+    ],
+    'admin-memberships-delete' => [
+        'controller' => 'AdminMembershipController',
+        'method' => 'deleteMembership',
+    ],
+    'manage_ship' => [
+        'controller' => 'AdminMembershipController',
+        'method' => 'viewMembership',
+    ],
 
     // Routes liées à la gestion des profils utilisateurs
-    'admin_profil' => [
-        'controller' => 'AdminProfilController',
-        'method' => 'editAdminProfile',
-    ],
+
     'profile' => [
         'controller' => 'ProfileController',
         'method' => 'viewProfile',
@@ -205,36 +250,6 @@ $routes = [
         'method' => 'ProfileForm',
     ],
 
-
-
-    'create_trails' => [
-        'controller' => 'AdminTrailsController',
-        'method' => 'createTrails',
-    ],
-    'create_campsite' => [
-        'controller' => 'AdminCampsitesController',
-        'method' => 'createCampsites',
-    ],
-    'create_ressources' => [
-        'controller' => 'AdminRessourcesController',
-        'method' => 'createRessources',
-    ],
-    'create_reports' => [
-        'controller' => 'AdminReportsController',
-        'method' => 'createReports',
-    ],
-    'create_admin' => [
-        'controller' => 'AdminAdminController',
-        'method' => 'createAdmin',
-    ],
-    'create_ship' => [
-        'controller' => 'AdminAdminController',
-        'method' => 'addMembership',
-    ],
-    'create_articles' => [
-        'controller' => 'AdminArticleController',
-        'method' => 'createArticle',
-    ],
     'manage-favorite-trail' => [
         'controller' => 'FavoritesTrailsController',
         'method' => 'manageFavoriteTrail',
@@ -252,29 +267,8 @@ $routes = [
         'controller' => 'CompletedTrailsController',
         'method' => 'manageCompletedTrailAjax',
     ],
-    'campsite' => [
-        'controller' => 'campsiteController',
-        'method' => 'getCampsiteById',
-    ],
-
-    'deleteReservation' =>[
-        'controller' => 'ProfileController',
-        'method' => 'deleteReservation',
-        'params' => ['reservation_id']
-    ],
-
-    'campsite' => [
-        'controller' => 'campsiteController',
-        'method' => 'getAllCampsites',
-    ],
-    'campsiteDetails' => [
-        'controller' => 'CampsiteController',
-        'method' => 'getCampsiteById'
-    ],
-
 
     // Routes liées à la gestion des réservations
-
     'reservation_history' => [
         'controller' => 'ReservationController',
         'method' => 'getReservationsByUser',
@@ -286,6 +280,11 @@ $routes = [
     'cancel-reservation' => [
         'controller' => 'ReservationController',
         'method' => 'cancelReservation',
+    ],
+    'deleteReservation' =>[
+        'controller' => 'ProfileController',
+        'method' => 'deleteReservation',
+        'params' => ['reservation_id']
     ],
 
     // Routes liées au paiement
@@ -300,27 +299,16 @@ $routes = [
     ],
 
     'apply-promo-code' => [ 
-            'controller' => 'PaymentController',
-            'method' => 'applyPromoCode',
-        ],
-
-
-    'calendar' => [
-        'controller' => 'CalendarController',
-        'method' => 'showCalendar',
+        'controller' => 'PaymentController',
+        'method' => 'applyPromoCode',
     ],
-    'coves' => [
-        'controller' => 'CoveController',
-        'method' => 'getAllCoves',
+    'payment-success' => [
+        'controller' => 'PaymentStatusController',
+        'method' => 'paymentSuccess',
     ],
-
-    'ressources' => [
-        'controller' => 'RessourceController',
-        'method' => 'getAllRessources',
-    ],
-    'ressourceDetails' => [
-        'controller' => 'RessourceController',
-        'method' => 'getRessourceById',
+    'payment-failed' => [
+        'controller' => 'PaymentStatusController',
+        'method' => 'paymentFailed',
     ],
 
 ];

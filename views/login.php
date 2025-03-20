@@ -10,7 +10,6 @@
     <title>La page de connection</title>
     <link rel="stylesheet" href="assets/style/user/login-page.css">
     <link rel="stylesheet" href="assets/style/config/_global.css">
-    <script src="assets/script/login.js" defer></script>
 </head>
 <body>
     <header>
@@ -69,5 +68,6 @@
       <footer>
           <?php include "components/_footer.php"; ?>
       </footer>
+      <script src="assets/script/login.js"></script>
 </body>
 </html>

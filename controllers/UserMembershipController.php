@@ -63,6 +63,7 @@ class UserMembershipController extends Controller{
                     'message' => 'Vous avez déjà un abonnement actif.',
                     'memberships' => $memberships 
                 ]); 
+                return;
             } else {
                 $membershipDetails = $membership->getMembershipById($membershipId);
                 if ($membershipDetails) {
