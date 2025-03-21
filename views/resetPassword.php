@@ -8,7 +8,6 @@
     <script src="assets/script/resetPassword.js" defer></script>
 </head>
 <body>
-    <body>
     <header>
         <?php include "components/_header.php"; ?>
     </header>
@@ -26,12 +25,12 @@
                     <input type="hidden" name="token" value="<?php echo htmlspecialchars($_GET['token'] ?? $_POST['token']); ?>" required>
                     <div class="form-group">
                         <label for="inputPassword"><p>Nouveau mot de passe</p></label>
-                        <input type="password" name="new_password" class="form-control" id="inputPassword2" required autocomplete="new-password">
+                        <input type="password" name="new_password" class="form-control" id="inputPassword" required autocomplete="new-password">
                     </div>
                     
                     <div class="form-group">
                         <label for="inputRepeatPassword"><p>Répétez le mot de passe</p></label>
-                        <input type="password" name="repeat_password" class="form-control" id="inputRepeatPassword2"  required autocomplete="new-password">
+                        <input type="password" name="repeat_password" class="form-control" id="inputRepeatPassword"  required autocomplete="new-password">
                         <div id="passwordError" class="error-message">Les mots de passe ne correspondent pas.</div>
                     </div>
                     <button class="register-button" type="submit"><p>Changer le mot de passe</p></button>

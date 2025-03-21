@@ -27,12 +27,12 @@
       <div class="login-container">
         <form method='post' action="loginForm" onsubmit="validateForm(event)">
           <div class="form-group">
-              <label for="inputEmail2">E-mail</label> 
-              <input type="email" name='email' class="form-control" id="inputEmail2" >
+              <label for="inputEmail">E-mail</label> 
+              <input type="email" name='email' class="form-control" id="inputEmail" >
           </div>
           <div class="form-group">
-              <label for="inputPassword2">Mot de passe</label>
-              <input type="password" name='password' class="form-control" id="inputPassword2">
+              <label for="inputPassword">Mot de passe</label>
+              <input type="password" name='password' class="form-control" id="inputPassword">
           </div>
           <h5><a class="register-text" href="http://localhost/forgot-password">Mot de passe oublié ?</a></h5>
           <div class="btn-confirmation"> 

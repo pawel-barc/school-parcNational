@@ -12,10 +12,12 @@ class PaymentStatusController extends Controller
 
     public function __construct()
     {
+        // Initialise la configuration à partir du fichier .env
         $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
         $dotenv->load();
     }
 
+    // Gère le succès du paiement et enregistre l'adhésion de l'utilisateur
     public function paymentSuccess()
     {
         if (!isset($_SESSION['user_id'])) {
@@ -45,6 +47,7 @@ class PaymentStatusController extends Controller
         }
     }
 
+    // Gère l'échec du paiement et affiche un message d'erreur
     public function paymentFailed()
     {
         if (!isset($_SESSION['user_id'])) {
@@ -55,6 +58,7 @@ class PaymentStatusController extends Controller
         $this->render('paymentFails', ['message' => $message]);
     }
 
+    // Envoie un email de confirmation d'adhésion à l'utilisateur
     public function sendConfirmationEmail($userEmail, $randomId, $expiryDate, $name)
     {
         $mail = new PHPMailer(true);

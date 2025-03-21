@@ -1,4 +1,5 @@
-<?php //To make the test happen, the 'protected function' should be replaced with the 'public function', 'exit;' should be remove. 
+<?php 
+// Pour effectuer le test, la fonction 'protected' doit être remplacée par 'public', et 'exit;' doit être supprimé.
 
 use PHPUnit\Framework\TestCase;
 
@@ -6,24 +7,24 @@ require_once __DIR__ . '/../controllers/Controller.php';
 
 class ControllerTest extends TestCase {
     private $controller;
-    //Standard function 'setup' to prepare the test envirenement, 'void' indicates that the function doesn't return any value.
+    //Fonction standard 'setUp' pour préparer l'environnement de test, 'void' indique que la fonction ne retourne aucune valeur.
     protected function setUp(): void {
-        //By mocking an object of the Controller class we can simulate its behavior, which help to 
-        //focus just on the specific part of the function without redirect action.
+        // En simulant un objet de la classe Controller, nous pouvons imiter son comportement,
+        // ce qui permet de se concentrer uniquement sur une partie spécifique de la fonction sans exécuter la redirection.
         $this->controller = $this->getMockBuilder(Controller::class)
-                                 ->onlyMethods(['redirect'])// Only the 'redirect' method will be mocked.
+                                 ->onlyMethods(['redirect'])// Seule la méthode 'redirect' sera simulée.
                                  ->getMock();
     }
 
     public function testCheckAdmin_RedirectsWhenNotLoggedIn() {
-        //The session and role of the user are ignored
+        // La session et le rôle de l'utilisateur sont ignorés.
         unset($_SESSION['user_id']);
         $_SESSION['user_role'] = null;
-        //Checking if the method redirect was called exactly once and if the method had the argument 'login'
+        // Vérification que la méthode 'redirect' a été appelée exactement une fois avec l'argument 'login'.
         $this->controller->expects($this->once())
                          ->method('redirect')
                          ->with('login');
-        //Here method checkAdmin is starting to play
+        // Ici, la méthode checkAdmin est exécutée.
         $this->controller->checkAdmin();
     }
 
@@ -37,9 +38,9 @@ class ControllerTest extends TestCase {
     }
 
     public function testCheckAdmin_AllowsAccessForAdmin() {
-        $_SESSION['user_id'] = 1; // User is connected
-        $_SESSION['user_role'] = 2; // User is an Admin
-        // We are expecting that 'redirect' is not going to be called.
+        $_SESSION['user_id'] = 1; // L'utilisateur est connecté.
+        $_SESSION['user_role'] = 2; // L'utilisateur est un administrateur.
+        // On s'attend à ce que la méthode 'redirect' ne soit pas appelée.
         $this->controller->expects($this->never())
                          ->method('redirect');
         $this->controller->checkAdmin();

@@ -9,7 +9,7 @@ class AdminController extends Controller
 
     public function __construct()
     {
-        // Initialize the model with the correct table
+        // Initialiser le modèle avec la table correcte
         $this->model = new AdminData('users');
     }
 

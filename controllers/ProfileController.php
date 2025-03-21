@@ -17,24 +17,26 @@ class ProfileController extends Controller
             $this->render('login');
             exit;
         }
-        /*Fetching favorites trails for the current user to display on the profile page*/
+
+        
+         //Récupération des sentiers favoris de l'utilisateur actuel pour les afficher sur la page de profil 
         $favoriteTrailsObject = new FavoriteTrail('favorites_trails');
         $favoriteTrails = $favoriteTrailsObject->getFavoriteTrailByUser($_SESSION['user_id']);
        
-        /*Fetching active membership details for the current user to display on the profile page*/
+        //Récupération des détails de l'adhésion active de l'utilisateur actuel pour les afficher sur la page de profil
         $membershipObject = new Membership('membership');
         $availableMembership = $membershipObject->getMembershipByUserId($_SESSION['user_id']);
 
-        /*Fetching completed trails for the current user to diplay on the profile page*/
+        // Récupération des sentiers complétés par l'utilisateur actuel pour les afficher sur la page de profil
         $completedTrailObject = new CompletedTrails('completed_trails');
         $completedTrails = $completedTrailObject->getCompletedTrailByUser();
 
-        /*Fetching the current user's information to display on the profile page*/
+        //Récupération des informations de l'utilisateur actuel pour les afficher sur la page de profil
         $userId = $_SESSION['user_id'];
         $User = new User('users');
         $userId = $User->getById($userId);
 
-        /*Fetching the current user's reservations to display on the profile page*/
+        //Récupération des réservations de l'utilisateur actuel pour les afficher sur la page de profil
         $user_id = $_SESSION['user_id'];
         $reservedCampingObject = new User('c.campsite_id');
         $reservedCampings = $reservedCampingObject->getReservationsByUser($user_id);
@@ -46,7 +48,7 @@ class ProfileController extends Controller
         $this->render('login');
         exit;
     }
-    /* Fetching the user's saved informations and rendering it in the profile form*/
+    // Récupération des informations enregistrées de l'utilisateur et affichage dans le formulaire de profil
     $userId = $_SESSION['user_id'];
     $userModel = new User('users');
     $userData = $userModel->getById($userId);
@@ -61,7 +63,7 @@ class ProfileController extends Controller
         exit;
     }
 
-    /* Preparing an array with the updated user data from the form*/ 
+    //Préparation d'un tableau contenant les données mises à jour de l'utilisateur depuis le formulaire 
     $userId = $_SESSION['user_id'];
     $userModel = new User('users');
     $userData = $userModel->getById($userId);
@@ -88,7 +90,7 @@ class ProfileController extends Controller
         $updatedData['password'] = $userData['password'];
     }
 
-    /*Updating user data using updateUser method*/
+    // Mise à jour des données utilisateur avec la méthode updateUser 
     $userModel = new User('users');
     $userModel->updateUser($userId, $updatedData);
     $_SESSION['firstname'] = $updatedData['firstname'];
@@ -100,7 +102,7 @@ class ProfileController extends Controller
     $_SESSION['zipcode'] = $updatedData['zipcode'];
     $_SESSION['mail'] = $updatedData['mail'];
     
-    /* Redirection to the profile site after data updating*/
+    // Redirection vers la page de profil après la mise à jour des données
     header('Location: profile');
     exit;
     }

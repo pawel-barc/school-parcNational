@@ -7,9 +7,10 @@ require_once __DIR__ . '/../models/User.php';
 
 class AdminMembershipController extends Controller
 {
-
+    // Afficher la liste des adhésions
     public function viewMembership()
     {
+        // Vérifier si l'utilisateur est un administrateur
         $this->checkAdmin();
         if (isset($_SESSION['user_id'])) {
             $membership = new Membership('membership');
@@ -34,6 +35,7 @@ class AdminMembershipController extends Controller
         }
     }
 
+    // Ajouter une nouvelle adhésion
     public function addMembership()
     {
         $this->checkAdmin();
@@ -49,6 +51,7 @@ class AdminMembershipController extends Controller
         }
     }
 
+    // Modifier une adhésion existante
     public function editMembership()
     {
         $this->checkAdmin();
@@ -68,6 +71,8 @@ class AdminMembershipController extends Controller
         }
     }
 
+
+    // Supprimer une adhésion
     public function deleteMembership()
     {
         $this->checkAdmin();
@@ -77,6 +82,7 @@ class AdminMembershipController extends Controller
         $this->redirect('admin-memberships-list');
     }
 
+    // Afficher les adhésions actives
     public function viewActiveMemberships()
     {
         $this->checkAdmin();

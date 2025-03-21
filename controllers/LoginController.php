@@ -9,18 +9,20 @@ use PHPMailer\PHPMailer\Exception;
 
 class LoginController extends Controller
 {
-
+    // Constructeur pour charger les variables d'environnement
     public function __construct()
     {
         $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
         $dotenv->load();
     }
 
+    // Affiche la page de connexion
     public function login()
     {
         $this->render('login');
     }
 
+    // Vérifie les informations d'identification et connecte l'utilisateur
     public function loginSaveForm(){
         $user = new User('users');
         $dbUser = $user->getUserByEmail($_POST['email']);
@@ -29,6 +31,7 @@ class LoginController extends Controller
                 if (password_verify($_POST['password'], $dbUser['password'])) {
                     $_SESSION['user_id'] = $dbUser['user_id'];
                     $_SESSION['user_role'] = $dbUser['role'];
+                    // Redirection selon le rôle de l'utilisateur
                     if ($dbUser['role'] == 1) {
                         $this->redirect('home');
                     } else if ($dbUser['role'] == 2) {
@@ -46,12 +49,13 @@ class LoginController extends Controller
         }
     }
 
+    // Redirige l'utilisateur vers Google pour l'authentification OAuth
     public function loginUsingGoogle()
     {
         $google_client_id = $_ENV['GOOGLE_CLIENT_ID'];
         $google_client_secret = $_ENV['GOOGLE_CLIENT_SECRET'];
         $google_redirect_url = 'http://localhost/parcNational/google-login';
-        //App performs a user browser redirect sending an authorization to google request with this below parameters
+        // Paramètres pour l'authentification OAuth avec Google
         $params = [
             'response_type' => 'code',
             'client_id' => $google_client_id,
@@ -60,15 +64,18 @@ class LoginController extends Controller
             'access_type' => 'offline',
             'prompt' => 'consent'
         ];
+        // Redirection vers la page de connexion Google
         header('Location: https://accounts.google.com/o/oauth2/auth?' . http_build_query($params));// converts an associative array into a link (a string with GET parameters)
     }
 
+    // Récupère les données de l'utilisateur à partir de Google après l'authentification OAuth
     public function getDataFromGoogle(){
         if(!isset($_GET['code'])){
             error_log("La connexion annulée par l'utilisateur");
             $this->render('login', ['error' => "La connexion annulée, veuillez réessayer la connexion" ]);
             exit;
         }
+        // Requête pour obtenir un token d'accès
         $google_client_id = $_ENV['GOOGLE_CLIENT_ID'];
         $google_client_secret = $_ENV['GOOGLE_CLIENT_SECRET'];
         $google_redirect_url = 'http://localhost/parcNational/google-login'; 
@@ -79,8 +86,8 @@ class LoginController extends Controller
             'redirect_uri' => $google_redirect_url,
             'grant_type' => 'authorization_code'//We tell Google that we want an authorization code
         ];
-        //Request configuration
-        $curl = curl_init();//Initialises sending the request that allows PHP to communicate with external services using protocols like HTTP or HTTPS
+        // Communication avec l'API Google pour récupérer les informations de l'utilisateur
+        $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, 'https://accounts.google.com/o/oauth2/token');
         curl_setopt($curl, CURLOPT_POST, true);
         curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($params));
@@ -121,13 +128,15 @@ class LoginController extends Controller
         }
     }
 
+    // Redirige l'utilisateur vers Facebook pour l'authentification OAuth
     public function loginUsingFacebook()
     {
         if(!isset($_GET['code'])){
             error_log("La connexion annulée par l'utilisateur");
             $this->render('login', ['error' => "La connexion annulée, veuillez réessayer la connexion" ]);
             exit;
-        }//// This method will be triggered when Facebook redirects back to us
+        }
+        // Cette méthode sera déclenchée lorsque Facebook nous redirigera de nouveau
         $facebook_client_id = $_ENV['FACEBOOK_CLIENT_ID'];
         $facebook_client_secret = $_ENV['FACEBOOK_CLIENT_SECRET'];
         $facebook_redirect_url = 'http://localhost/parcNational/facebook-login';
@@ -139,8 +148,8 @@ class LoginController extends Controller
             'redirect_uri' => $facebook_redirect_url
         ];
 
-        //Request configuration We retrieve the key to fetch the data
-        $curl = curl_init();//Initialises sending the request that allows PHP to communicate with external services using protocols like HTTP or HTTPS
+        // Configuration de la requête - nous récupérons la clé pour obtenir les données
+        $curl = curl_init();// Initialise l'envoi de la requête permettant à PHP de communiquer avec des services externes via les protocoles HTTP ou HTTPS
         curl_setopt($curl, CURLOPT_URL, 'https://graph.facebook.com/oauth/access_token');
         curl_setopt($curl, CURLOPT_POST, true);
         curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($params));
@@ -151,7 +160,7 @@ class LoginController extends Controller
 
         // Data download 
         $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, 'https://graph.facebook.com/me?fields=name,email,picture');//FB documentations link
+        curl_setopt($curl, CURLOPT_URL, 'https://graph.facebook.com/me?fields=name,email,picture');
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_HTTPHEADER, ['Authorization: Bearer ' . $responseData->access_token]);
         $response = curl_exec($curl);
@@ -177,11 +186,13 @@ class LoginController extends Controller
         }
     }
 
+    // Affiche la page de récupération du mot de passe
     public function forgotPassword()
     {
         $this->render('forgotPassword');
     }
 
+    // Gère la demande de réinitialisation du mot de passe et envoie un e-mail avec un lien de réinitialisation
     public function resetPasswordRequest()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -203,6 +214,7 @@ class LoginController extends Controller
         }
     }
 
+    // Envoie un e-mail contenant le lien de réinitialisation du mot de passe
     public function sendPasswordResetEmail($userEmail, $resetLink, $name)
     {
         $mail = new PHPMailer(true);
@@ -249,6 +261,7 @@ class LoginController extends Controller
         }
     }
 
+    // Réinitialise le mot de passe en utilisant le jeton envoyé par e-mail
     public function resetPassword()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -283,12 +296,13 @@ class LoginController extends Controller
         }
     }
 
-
+    // Vérifie si un mot de passe répond aux critères de sécurité
     private function isPasswordValid($password)
     {
         return preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/', $password);
     }
 
+    // Déconnexion de l'utilisateur
     public function logout()
     {
         if (session_status() === PHP_SESSION_NONE) {
