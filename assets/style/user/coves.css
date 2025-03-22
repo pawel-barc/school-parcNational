@@ -1,227 +1,306 @@
 @media screen and (max-width: 456px) {
-  .hero-container {
-    background-image: url(../../img/category_home/coves.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-  }
-
-  [id="calanque-"] {
-    scroll-margin-top: 70px; /* Ajuste cette valeur en fonction de la hauteur de ton en-tête */
-  }
-
-  .title-page {
-    position: relative; /* Permet de positionner les éléments enfants relativement */
-    width: 100%; /* Vous pouvez ajuster la largeur selon vos besoins */
-  }
-
   .text-overlay {
-    position: absolute; /* Positionnement absolu pour superposer le texte */
-    top: 50%; /* Centrer verticalement */
-    left: 50%; /* Centrer horizontalement */
-    transform: translate(-50%, -50%); /* Ajustement pour le centrer parfaitement */
-    text-align: center; /* Centrer le texte */
-    padding: 25px;
-    color: white;
-    font-weight: 700;
-  }
-  /* ----------------------- */
-
-  main > section > p {
-    text-align: left;
-  }
-  main > section > section {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    gap: 20px;
-    width: 80%;
-  }
-  main > section > section > li {
-    border: solid 1px var(--lmblue);
-    padding: 10px;
-    text-align: center;
-    border-radius: 5px;
+    min-width: 70vw;
+    max-width: 90vw;
   }
 
-  main > nav {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 2px;
-    margin: 10px;
-    text-align: center;
-    background-color: #f8f8f8;
-  }
-
-  main > nav > li {
-    background-color: var(--lmblue);
-    border-radius: 5px 5px 0 0;
-    border: solid 1px transparent;
-    border-bottom: none;
-    padding: 10px;
-  }
-
-  main > section > div {
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* calanques cards */
-  main > section > div > article {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-    margin: 20px;
-    margin-top: 0;
-    border: solid 1px lightblue;
-    border-radius: 5px;
-    background-color: white;
-  }
-
-  article > :nth-child(2) {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    justify-content: space-around;
-    align-items: center;
-  }
-
-  article > section > img {
-    width: 100%; /* Ajuster la taille de l'image si nécessaire */
-  }
-
-  article > section > p {
-    text-align: left; /* Alignement du texte */
-  }
-
-  .hgroup {
-    display: flex;
-    align-items: last baseline;
-    gap: 10px;
-  }
-}
-@media screen and (min-width: 456px) {
-  .hero-container {
-    background-image: url(../../img/category_home/coves.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-  }
-
-  .title-page {
-    position: relative; /* Permet de positionner les éléments enfants relativement */
-    width: 100%; /* Vous pouvez ajuster la largeur selon vos besoins */
-  }
-
-  .text-overlay {
-    position: absolute; /* Positionnement absolu pour superposer le texte */
-    top: 50%; /* Centrer verticalement */
-    left: 50%; /* Centrer horizontalement */
-    transform: translate(-50%, -50%); /* Ajustement pour le centrer parfaitement */
-    text-align: center; /* Centrer le texte */
-    padding: 25px;
-
-    background: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.496);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(4px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 10px;
-  }
-
-  [id^="calanque-"] {
-    scroll-margin-top: 70px; /* Ajuste cette valeur en fonction de la hauteur de ton en-tête */
-  }
-
-  /* ----------------------- */
-
-  main > section > p {
-    text-align: center;
-  }
   main > section > section {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr !important;
     margin: 0 auto;
     gap: 20px;
     width: 80%;
   }
-  main > section > section > li {
-    border: solid 1px var(--lmblue);
-    padding: 10px;
-    text-align: center;
+
+  .coves-description {
+    max-height: 100px;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+  }
+
+  .coves-description.expanded {
+    max-height: 900px;
+  }
+
+  .toggle-btn {
+    display: block !important;
+    padding: 2vw;
     border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    border-color: transparent;
+    cursor: pointer;
+    font-size: clamp(15px, 4vw, 22px);
   }
-  main > section > section > li:hover {
-    border: solid 1px var(--darkblue);
-    border-radius: 15px;
-    background-color: white;
+}
+
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+@media screen and (min-width: 456px) and (max-width: 768px) {
+  .text-overlay {
+    width: 60vw !important;
   }
 
-  main > nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 2px;
-    margin: 10px;
-    text-align: center;
-    border-bottom: solid 1px var(--lmblue);
-    background-color: #f8f8f8;
-    box-shadow: inset 0px -5px 10px 1px lightgray;
+  main > section > section {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    width: 80%;
   }
 
-  main > nav > li {
-    background-color: var(--lmblue);
-    border-radius: 5px 5px 0 0;
-    border: solid 1px transparent;
-    border-bottom: none;
-    padding: 10px;
-  }
-  main > nav > li:hover {
-    border: solid 1px var(--lmblue);
-    border-bottom: none;
-    background-color: white;
-    border-radius: 5px 5px 0 0;
+  .coves-description {
+    max-height: 100px;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
   }
 
-  main > section > div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .coves-description.expanded {
+    max-height: 900px;
   }
 
-  main > section > div > article {
-    display: flex;
-    flex-direction: column;
+  .toggle-btn {
+    display: block !important;
+    background-color: rgb(255, 255, 255);
+    border-color: transparent;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+    font-size: clamp(12px, 5vw, 20px);
+  }
+}
+
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  main > section > section {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    margin: 0 auto;
     gap: 20px;
-    padding: 20px;
-    margin: 20px;
-    margin-top: 0;
-    border: solid 1px lightblue;
-    border-radius: 5px;
-    background-color: white;
+    width: 80%;
   }
 
-  article > :nth-child(2) {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    justify-content: space-around;
-    align-items: center;
+  .coves-description {
+    max-height: 100px;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
   }
 
-  article > section > img {
-    width: 40%; /* Ajuster la taille de l'image si nécessaire */
+  .coves-description.expanded {
+    max-height: 900px;
   }
 
-  article > section > p {
-    text-align: left; /* Alignement du texte */
+  .toggle-btn {
+    display: block !important;
+    background-color: rgb(255, 255, 255);
+    border-color: transparent;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+    font-size: clamp(12px, 5vw, 20px);
   }
+}
 
-  .hgroup {
-    display: flex;
-    align-items: last baseline;
-    gap: 10px;
-  }
+/*Styles globales//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+/* ----------------------------------------------------------------Intro---------------------------------------------------------------------------- */
+.hero-container {
+  background-image: url(../../img/category_home/coves.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.title-page {
+  position: relative; /* Permet de positionner les éléments enfants relativement */
+  width: 100%; /* Vous pouvez ajuster la largeur selon vos besoins */
+}
+
+.text-overlay {
+  position: absolute; /* Positionnement absolu pour superposer le texte */
+  top: 50%; /* Centrer verticalement */
+  left: 50%; /* Centrer horizontalement */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Ajustement pour le centrer parfaitement */
+  text-align: center; /* Centrer le texte */
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.496);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  color: white;
+  font-weight: 700;
+  /* width: clamp(400px, 1.5vw, 600px) !important; */
+  width: 60vw;
+  max-width: 800px !important;
+}
+
+h1 {
+  text-align: center;
+  font-size: clamp(20px, 7vw, 50px) !important;
+}
+
+[id^="calanque-"] {
+  scroll-margin-top: 70px;
+}
+
+.text-overlay p {
+  text-align: center;
+  font-size: clamp(20px, 3.5vw, 30px) !important;
+}
+
+/* -------------------------------------------------------------------Navigation------------------------------------------------------------------------- */
+
+.coves-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  padding: 2vw;
+  margin-bottom: 12vw;
+  gap: 1vw;
+  justify-content: center !important;
+}
+
+.cove-li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(15px, 2vw, 20px);
+  height: clamp(30px, 5vw, 70px);
+}
+
+main > nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2px;
+  margin: 10px;
+  text-align: center;
+  border-bottom: solid 1px var(--lmblue);
+  background-color: #f8f8f8;
+  box-shadow: inset 0px -5px 10px 1px lightgray;
+}
+
+main > nav > li {
+  background-color: var(--lmblue);
+  border-radius: 5px;
+  border: solid 1px transparent;
+  border-bottom: none;
+  padding: 10px;
+}
+
+main > nav > li:hover {
+  border: solid 1px var(--lmblue);
+  border-bottom: none;
+  background-color: white;
+  border-radius: 5px 5px 0 0;
+}
+
+/* -------------------------------------------------------------------Description------------------------------------------------------------------------- */
+
+main > section > h2,
+main > h2 {
+  text-align: center;
+  font-size: clamp(10px, 8vw, 55px);
+  max-width: 80%;
+  margin: 5vw auto;
+}
+
+main > section > p {
+  font-size: clamp(15px, 6vw, 25px);
+  margin: 2vw auto;
+  max-width: clamp(100px, 80vw, 1200px) !important;
+}
+section > li > p {
+  text-align: justify;
+  font-size: clamp(15px, 6vw, 20px);
+  margin: 2vw;
+}
+
+.first-part {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  margin: 8vw auto;
+  gap: 4vw;
+  max-width: clamp(300px, 90vw, 1200px) !important;
+}
+
+main > section > section > li {
+  border: solid 1px var(--lmblue);
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  font-size: clamp(15px, 5vw, 30px);
+}
+
+main > section > section > li:hover {
+  border: solid 1px var(--darkblue);
+  border-radius: 15px;
+  background-color: white;
+}
+
+.second-part {
+  display: grid;
+  grid-template-columns: 1fr !important;
+  margin: 8vw auto;
+  gap: 3vw;
+  max-width: clamp(300px, 90vw, 1200px) !important;
+}
+
+/* -------------------------------------------------------------------Liste des Calanques------------------------------------------------------------------- */
+
+.bottom-part {
+  margin-top: 15vw;
+}
+
+main > section > div {
+  display: flex;
+  flex-direction: column;
+}
+
+main > section > div > article {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  margin: 20px;
+  margin-top: 0;
+  border: solid 1px lightblue;
+  border-radius: 5px;
+  background-color: white;
+}
+
+article > :nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+article > section > p {
+  text-align: center; /* Alignement du texte */
+}
+
+.hgroup h2,
+.hgroup p {
+  text-align: center;
+}
+
+.coves-list {
+  display: flex;
+  flex-direction: column !important;
+}
+
+.coves-list > p {
+  font-size: clamp(15px, 5vw, 22px);
+}
+
+.coves-list > img {
+  width: 80vw !important; /* Ajuster la taille de l'image si nécessaire */
+}
+
+.coves-description {
+  width: 80vw;
+}
+
+.toggle-btn {
+  display: none;
 }

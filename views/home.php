@@ -102,12 +102,15 @@
                     <?php foreach($news as $datas): ?>
                         <a href="details_news?id=<?= htmlspecialchars($datas['id']); ?>">
                             <article class="news-item"> <!-- Un conteneur pour chaque actualité -->
-                                <img class="news-pic" src="<?php echo !empty($datas['picture']) ? htmlspecialchars($datas['picture']) : ''; ?>" alt="Image de l'actualité" />
+                            <img class="news-pic" src="<?php echo !empty($datas['picture']) ? htmlspecialchars($datas['picture']) : ''; ?>" alt="Image de l'actualité" />
+                            <div class="text-container">    
                                 <p class="news-title"><?php echo htmlspecialchars($datas['title']); ?></p>
                                 <div class="news-datetime">
                                     <time class="news-date" datetime="<?php echo htmlspecialchars($datas['published_date']); ?>">le <i><?php echo htmlspecialchars($datas['published_date']); ?></i></time>
                                     <time class="news-time" datetime="<?php echo htmlspecialchars($datas['published_time']); ?>">à <i><?php echo htmlspecialchars($datas['published_time']); ?></i></time>
                                 </div>
+                            </div>
+                        
                             </article>
                         </a>
                     <?php endforeach; ?>

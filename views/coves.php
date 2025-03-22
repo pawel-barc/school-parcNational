@@ -11,7 +11,7 @@
     <main>
         <section>
             <div class="hero-container">
-                <header><?php include "components/_header.php"; ?></header>    
+                <header><?php include "components/_header.php"; ?></header> 
                 <hgroup class="text-overlay">
                     <h1 class="title-page">Les Calanques de Marseille</h1>
                     <p>
@@ -37,11 +37,11 @@
         </nav>
 
         <section>
-            <h2 style="text-align:center;">Qu'est-ce qu'une Calanque ?</h2>
+            <h2>Qu'est-ce qu'une Calanque ?</h2>
             <p>Le terme provençal « calanques » désigne des anses bordées de pentes abruptes. Il est la fusion de deux mots :</p>
-            <section>
+            <section class="first-part">
                 <li>
-                    <div><strong>Calo</strong></div>
+                    <p style="text-align: center"><strong>Calo</strong></p>
                     <p>
                         Vieux mot provençal, il signifie « petite crique rocheuse ».<br>Il est lui-même issu d'une très ancienne racine méditerranéenne (kal) 
                         <br>qui désigne des criques aussi bien en Corse qu'aux Baléares.<br>Cette racine remonte à l'époque ligure et a servi 
@@ -51,7 +51,7 @@
                     </p>
                 </li>
                 <li>
-                    <div><strong>Anca</strong></div>
+                    <p style="text-align: center"><strong>Anca</strong></p>
                     <p>
                         Ce suffixe, également d'origine ligure, indique une pente rapide :<br>on le retrouve notamment dans le mot alpin avalanche.
                     </p>
@@ -59,7 +59,7 @@
             </section>
         </section>
 
-        <section>
+        <section >
             <h2 style="text-align:center;">Comment se sont formées les Calanques ?</h2>
             <p >
                 Les roches calcaires du Parc national sont à l’origine faites de sédiments. 
@@ -70,9 +70,9 @@
                 Ces minéraux fins d'origine corallienne sont charriés par un fleuve qui coulait du sud au nord,
                 et s’accumulent patiemment sur plusieurs centaines de mètres au fond d’une mer tropicale…
             </p>
-            <section>
+            <section class="second-part">
                 <li>
-                    <div><strong>Tectonique des plaques</strong></div>
+                    <p style="text-align: center"><strong>Tectonique des plaques</strong></p>
                     <p>
                         <br>
                         Durant l’ère tertiaire, il y a 60 millions d’années, les plaques africaine et européenne se chevauchent, et ces roches émergent alors.
@@ -82,7 +82,7 @@
                     </p>
                 </li>
                 <li>
-                    <div><strong>Glaciations, réchauffements, érosion</strong></div>
+                    <p style="text-align: center"><strong>Glaciations, réchauffements, érosion</strong></p>
                     <p>
                         <br>
                         Durant l’ère tertiaire, il y a 60 millions d’années, les plaques africaine et européenne se chevauchent, et ces roches émergent alors.
@@ -102,7 +102,7 @@
             </p>
         </section>
 
-        <h2 style="text-align:center;">Nos Calanques</h2>
+        <h2 class="bottom-part">Nos Calanques</h2>
 
         <section>
             <?php if (!empty($calanques)): ?>
@@ -123,11 +123,12 @@
                                     </svg>
                                 </div>
                             </section>
-                            <section>
+                            <section class="coves-list">
                                 <?php if (!empty($calanque['image'])): ?>
                                     <img src="../<?= htmlspecialchars($calanque['image']); ?>" alt="Image de <?= htmlspecialchars($calanque['name']); ?>">
                                 <?php endif; ?>
-                                <p><?= htmlspecialchars($calanque['description']); ?></p>
+                                <p class="coves-description"><?= htmlspecialchars($calanque['description']); ?></p>
+                                <button class="toggle-btn">Afficher plus</button>
                             </section>
                         </article>
                         <?php $idCounter++; // Incrémenter le compteur à chaque itération ?>
@@ -141,5 +142,14 @@
     <footer>
         <?php include "components/_footer.php"; ?>
     </footer>
+    <script>
+        document.querySelectorAll(".toggle-btn").forEach(button => {
+            button.addEventListener("click", function () {
+                const paragraph = this.previousElementSibling;
+                paragraph.classList.toggle("expanded");
+                this.textContent = paragraph.classList.contains("expanded") ? "Afficher moins" : "Afficher plus";
+            });
+        });
+    </script>
 </body>
 </html>
