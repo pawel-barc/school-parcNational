@@ -21,9 +21,6 @@ fetch(apiUrl)
     const weatherDiv = document.getElementById("weather");
     const dailyForecast = data.daily;
 
-    // Section pour la météo du jour
-    let todayHtml = "";
-
     // Afficher les données d'aujourd'hui (premier élément des prévisions)
     const dateToday = dailyForecast.time[0];
     const tempMaxToday = dailyForecast.temperature_2m_max[0];
@@ -53,32 +50,32 @@ fetch(apiUrl)
       weatherIcon = "/assets/icon/sun.svg"; // Icône par défaut
     }
 
-    todayHtml += `
+    let todayHtml = `
         <section class="current_date">
+          <section class="temperature">
+              <p><strong>Ajourd'hui</strong></p>
+
+              <div>
+                <img src="/assets/icon/thermo_red.svg" alt="Température max" />
+                <p>${tempMaxToday} °C</p>
+              </div>
+
+              <div>
+                <img src="/assets/icon/thermo_blue.svg" alt="Température min" />
+                <p>${tempMinToday} °C</p>
+              </div>
+
+              <div>
+                <img src="/assets/icon/wind.svg" alt="" />
+                <p>${windSpeedMaxToday} km/h</p>
+              </div>
+
+          </section>
           <div>
             <img class="current_weather" src="${weatherIcon}" alt="" />
           </div>
 
-          <section class="temperature">
-            <p style="text-align: right"><strong>${dateToday}</strong></p>
-            <div>
-              <img src="/assets/icon/thermo_red.svg" alt="Température max" />
-              <p>${tempMaxToday} °C</p>
-            </div>
-
-            <div>
-              <img src="/assets/icon/thermo_blue.svg" alt="Température min" />
-              <p>${tempMinToday} °C</p>
-            </div>
-
-            <div>
-              <img src="/assets/icon/wind.svg" alt="" />
-              <p>${windSpeedMaxToday} km/h</p>
-            </div>
-          </section>
-        </section>
-
-        <hr class="weather_hr" />`;
+        </section>`;
 
     // Section pour les prévisions des prochains jours
     let forecastHtml = "";
@@ -103,10 +100,7 @@ fetch(apiUrl)
       }
 
       forecastHtml += `      
-        <section class="prevision">
-
-          <div class="prevision_container_data">
-
+        <section class="prevision_container_data">
             <p><strong>${date}</strong></p>
             <img src="${weatherIcon}" alt="" />
             
@@ -124,17 +118,22 @@ fetch(apiUrl)
 
               <div>
                 <img src="/assets/icon/wind.svg" alt="" />
-                <p>${windSpeedMax} km/h</p>
+                <p class="wind-parameter">${windSpeedMax} km/h</p>
               </div>
             
             </section>
           
-          </div>
         </section>`;
     }
 
     // Afficher la météo du jour et les prévisions séparément dans le div "weather"
-    weatherDiv.innerHTML = todayHtml + forecastHtml;
+    weatherDiv.innerHTML = `
+      <div class="weather_container">
+        ${todayHtml}
+        <div class="previsions">
+          ${forecastHtml}
+        </div>
+      </div>`;
   })
   .catch((error) => {
     console.error("Erreur:", error);

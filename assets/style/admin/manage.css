@@ -8,7 +8,8 @@
     gap: 10px;
     padding: 10px;
   }
-  .data > div {
+  .data > div,
+  .show-list {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -90,7 +91,8 @@
     gap: 20px;
     padding: 0 10px 0 10px;
   }
-  .data > div {
+  .data > div,
+  .show-list {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -114,7 +116,15 @@
     background: linear-gradient(0deg, #fef9d9, #9ad1ff);
     transition: top 0.7s ease; /* Transition douce */
     z-index: 0; /* Derrière le contenu */
-    clip-path: polygon(0% 100%, 20% 50%, 40% 80%, 60% 40%, 80% 70%, 100% 30%, 100% 100%);
+    clip-path: polygon(
+      0% 100%,
+      20% 50%,
+      40% 80%,
+      60% 40%,
+      80% 70%,
+      100% 30%,
+      100% 100%
+    );
   }
   .data > div:hover::before {
     top: 0; /* Remplit l'élément */
@@ -145,18 +155,21 @@
 
   /* ?Ici c'est uniquement pour le hover de la dernière div pour la différencier des autre qui ne sont pas cliquable */
   .data > div:last-child::before,
-  .data > div:nth-child(4)::before {
+  .data > div:nth-child(4)::before,
+  .show-list::before {
     clip-path: none;
     background: none;
   }
   .data > div:last-child:hover,
-  .data > div:nth-child(4):hover {
+  .data > div:nth-child(4):hover,
+  .show-list {
     cursor: pointer;
     background-color: #fef9d9;
     transition: background-color 0.5s ease-in-out;
   }
   .data > div:last-child::before,
-  .data > div:nth-child(4)::before {
+  .data > div:nth-child(4)::before,
+  .show-list::before {
     clip-path: none;
     background: none;
   }

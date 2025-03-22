@@ -33,9 +33,9 @@
             <p><?= htmlspecialchars($totalMemberships ?? 0) ?></p> <!-- Affichage du nombre total d'abonnements -->
         </div>
 
-        <div>
+        <div class="show-list">
             <a href="admin-active-memberships-list">Liste des abonnées</a>
-            <img src="assets/icon/users.svg" alt="icon users">
+            <a href="admin-active-memberships-list"><img src="assets/icon/users.svg" alt="icon users"></a>
         </div>
 
         <div>

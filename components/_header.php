@@ -5,12 +5,12 @@
     <img class="logo-header" src="assets/img/logo-pncal.svg" alt="Logo du Parc Nationnal des Calanques">
     <ul class="ul-header">
         <li><a href="home">Accueil</a></li>
-        <li><a href="coves">Les Calanques</a></li>
-        <li><a href="ressources">Les Ressources Naturelles</a></li>
-        <li><a href="trails">Les Sentiers</a></li>
-        <li><a href="campsite">Les Campings</a></li>
-        <li><a href="map">La Carte</a></li>
-        <li><a href="view-available-memberships">Les Abonnements</a></li>
+        <li><a href="coves">Calanques</a></li>
+        <li><a href="ressources">Ressources naturelles</a></li>
+        <li><a href="trails">Sentiers</a></li>
+        <li><a href="campsite">Campings</a></li>
+        <li><a href="map">Carte</a></li>
+        <li><a href="view-available-memberships">Abonnements</a></li>
         <?php if (!isset($_SESSION['user_id'])): ?>
             <li><a href="login">Connexion</a></li>
         <?php endif; ?>
@@ -28,16 +28,18 @@
 
 <nav class="nav-header-mobil">
     <!-- Bouton hamburger (pour les petits écrans) -->
-    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-    
+     <div class="top-part">
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <img class="logo-header" src="assets/img/logo-pncal.svg" alt="Logo du Parc Nationnal des Calanques">
+    </div>
     <ul class="ul-header-mobil">
         <li><a href="home">Accueil</a></li>
-        <li><a href="coves">Les Calanques</a></li>
-        <li><a href="ressources">Les Ressources Naturelles</a></li>
-        <li><a href="trails">Les Sentiers</a></li>
-        <li><a href="campsite">Les Campings</a></li>
-        <li><a href="map">La Carte</a></li>
-        <li><a href="view-available-memberships">Les Abonnements</a></li>
+        <li><a href="coves">Calanques</a></li>
+        <li><a href="ressources">Ressources Naturelles</a></li>
+        <li><a href="trails">Sentiers</a></li>
+        <li><a href="campsite">Campings</a></li>
+        <li><a href="map">Carte</a></li>
+        <li><a href="view-available-memberships">Abonnements</a></li>
         <?php if (!isset($_SESSION['user_id'])): ?>
             <li><a href="login">Connexion</a></li>
         <?php else: ?>
@@ -49,7 +51,6 @@
         <?php endif; ?>
     </ul>
 </nav>
-
 
 <script>
     function toggleMenu() {
