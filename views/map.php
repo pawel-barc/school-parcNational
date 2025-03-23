@@ -14,10 +14,10 @@
         <?php include "components/_header.php"; ?>
     </header>
     <main>
-        <h1 style='margin-bottom:0;'>La Carte</h1>
+        <h1 class="title">La Carte</h1>
         <section class="description-page">
             <p>Retrouver tous les sentiers et tout les points de vue présent au Parc National des Calanques !</p>
-            <p></p>
+            
         </section>
 
         <section class="map-container">

@@ -119,7 +119,9 @@
   }
   .close-tag:hover {
     content: url(../../icon/close-white.svg);
-    transform: rotate(90deg); /* Rotation de 180 degrés et zoom de 10% lors du survol */
+    transform: rotate(
+      90deg
+    ); /* Rotation de 180 degrés et zoom de 10% lors du survol */
   }
 }
 
@@ -132,7 +134,7 @@
 
   .filter {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     gap: 20px;
     padding: 20px 20px 5px 20px;
@@ -250,6 +252,8 @@
   }
   .close-tag:hover {
     content: url(../../icon/close-white.svg);
-    transform: rotate(90deg); /* Rotation de 180 degrés et zoom de 10% lors du survol */
+    transform: rotate(
+      90deg
+    ); /* Rotation de 180 degrés et zoom de 10% lors du survol */
   }
 }

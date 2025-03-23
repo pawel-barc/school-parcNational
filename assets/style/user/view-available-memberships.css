@@ -11,103 +11,26 @@
     box-shadow: lightgray 0 5px 15px 0;
     background: linear-gradient(to right, #add8e6, #e6e6fa);
     margin-bottom: 50px;
-  }
-
-  main > section > section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    padding: 10px;
-  }
-
-  main > section > h2 {
-    text-align: center;
-  }
-
-  main > section > section > div {
     width: 100%;
-    text-align: center;
-    padding: 10px;
-    border-radius: 50% 20% / 10% 40%;
-    background-color: #f8f8f8;
-    border: var(--darkblue) solid 1px;
-  }
-
-  /* ------------ */
-  .card_ship_container {
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 70px;
-    margin: 25px 0 50px 0;
-    perspective: 500px; /* Cela peut être appliqué ici pour le conteneur */
-  }
-
-  .card_ship {
-    background: linear-gradient(156deg, var(--lmblue), var(--mediumblue));
-    width: 220px;
-    padding: 15px;
-    border-radius: 10px;
-    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Transition fluide */
-  }
-
-  .card_ship > form > button,
-  .card_ship > form > button > p {
-    color: black;
-  }
-
-  /* ---------- */
-
-  .message {
-    display: flex;
-    justify-content: center;
-    padding-top: 60px;
-    text-align: center;
-    color: rgb(179, 64, 18);
-  }
-}
-
-@media screen and (min-width: 456px) {
-  main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: auto;
-    width: 70%;
-  }
-
-  main > section {
-    border: solid 1px var(--mediumblue);
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: lightgray 0 5px 15px 0;
-    background: linear-gradient(to right, #add8e6, #e6e6fa);
-    margin-bottom: 50px;
   }
 
   main > section > section {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 50px;
-    padding: 10px;
-    margin: 0 25px 0 25px;
   }
 
   main > section > h2 {
     text-align: center;
   }
-}
 
   main > section > section > div {
-    width: 50%;
-    margin: 10px;
+    width: auto;
+    height: auto;
     text-align: center;
-    padding: 10px;
+    padding: 15px;
     border-radius: 50% 20% / 10% 40%;
     background-color: #f8f8f8;
     border: var(--darkblue) solid 1px;
@@ -131,18 +54,13 @@
     width: 220px;
     padding: 15px;
     border-radius: 10px;
-    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Transition fluide */
+    transition: transform 0.3s ease, background-color 0.3s ease,
+      box-shadow 0.3s ease; /* Transition fluide */
   }
 
   .card_ship > form > button,
   .card_ship > form > button > p {
     color: black;
-  }
-
-  .card_ship:hover {
-    background-color: var(--lm);
-    transform: translateY(-5px) rotateY(10deg) rotateX(5deg); /* Ajoute les rotations pour l'effet 3D */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); /* Ombre portée */
   }
 
   /* ---------- */
@@ -154,13 +72,141 @@
     text-align: center;
     color: rgb(179, 64, 18);
   }
+}
 
-/*RESPONSIVE DESIGN*/
-@media (min-width: 1480px){
-  section > p {
-    max-width: 800px;
-    text-align: center;
-    display: block;
-    margin: 0 auto;
-  }
+.hero-page {
+  background-image: url(../../img/membership/membership.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.title-page {
+  position: relative; /* Permet de positionner les éléments enfants relativement */
+  width: 100%; /* Vous pouvez ajuster la largeur selon vos besoins */
+  font-size: clamp(16px, 4.5vw, 32px);
+}
+
+.hero-page p {
+  font-size: clamp(16px, 2vw, 26px) !important;
+  margin: 4vw auto !important;
+}
+
+.text-overlay {
+  position: absolute; /* Positionnement absolu pour superposer le texte */
+  top: 50%; /* Centrer verticalement */
+  left: 50%; /* Centrer horizontalement */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Ajustement pour le centrer parfaitement */
+  text-align: center; /* Centrer le texte */
+  padding: 2vw;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.496);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  color: rgb(19, 59, 92);
+  font-weight: 700;
+  width: 60vw;
+  max-width: 800px !important;
+  max-height: 80vh;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+
+main > section {
+  border: solid 1px var(--mediumblue);
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: lightgray 0 5px 15px 0;
+  background: linear-gradient(to right, #add8e6, #e6e6fa);
+  margin-bottom: 50px;
+  width: 100%;
+}
+
+main > section > section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  padding: 10px;
+}
+
+main > section > h2 {
+  text-align: center;
+  font-size: clamp(18px, 5vw, 28px);
+}
+main > section > p {
+  margin: 2vw 4vw;
+}
+
+main > section > section > div {
+  /* min-width: 200px; */
+  max-width: 300px;
+  margin: 10px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 50% 20% / 10% 40%;
+  background-color: #f8f8f8;
+  border: var(--darkblue) solid 1px;
+}
+
+.offert {
+  display: flex;
+  justify-content: center;
+}
+
+.offert > div > a {
+  border-bottom: 1px solid rgb(10, 68, 68);
+  color: rgb(10, 68, 68);
+}
+
+/* ------------ */
+.card_ship_container {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+  margin: 25px 0 50px 0;
+  perspective: 500px; /* Cela peut être appliqué ici pour le conteneur */
+}
+
+.card_ship {
+  background: linear-gradient(156deg, var(--lmblue), var(--mediumblue));
+  width: 220px;
+  padding: 15px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, background-color 0.3s ease,
+    box-shadow 0.3s ease; /* Transition fluide */
+}
+
+.card_ship > form > button,
+.card_ship > form > button > p {
+  color: black;
+}
+
+.card_ship:hover {
+  background-color: var(--lm);
+  transform: translateY(-5px) rotateY(10deg) rotateX(5deg); /* Ajoute les rotations pour l'effet 3D */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); /* Ombre portée */
+}
+
+/* ---------- */
+
+.message {
+  display: flex;
+  justify-content: center;
+  padding-top: 60px;
+  text-align: center;
+  color: rgb(179, 64, 18);
 }

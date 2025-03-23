@@ -5,40 +5,60 @@
   height: 100vh;
 }
 
+.text-overlay > p {
+  font-size: clamp(16px, 1.9vw, 28px) !important;
+}
+
 .title-page {
   position: relative; /* Permet de positionner les éléments enfants relativement */
   width: 100%; /* Vous pouvez ajuster la largeur selon vos besoins */
+  font-size: clamp(16px, 4.5vw, 32px);
+  margin: 1vw auto;
+}
+.text-overlay {
+  position: absolute; /* Positionnement absolu pour superposer le texte */
+  top: 50%; /* Centrer verticalement */
+  left: 50%; /* Centrer horizontalement */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Ajustement pour le centrer parfaitement */
+  text-align: center; /* Centrer le texte */
+  padding: 1vw;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.496);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  color: rgb(57, 111, 158);
+  font-weight: 700;
+  width: 60vw;
+  max-width: 800px !important;
+  max-height: 80vh;
 }
 
-@media screen and (max-width: 456px) {
-  .text-overlay {
-    position: absolute; /* Positionnement absolu pour superposer le texte */
-    top: 50%; /* Centrer verticalement */
-    left: 50%; /* Centrer horizontalement */
-    transform: translate(-50%, -50%); /* Ajustement pour le centrer parfaitement */
-    text-align: center; /* Centrer le texte */
-    padding: 25px;
-    color: black;
-    font-weight: 700;
-  }
+.trails-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+  justify-content: center;
+  align-items: stretch;
+  gap: 25px;
+  padding: 2vw;
 }
 
-@media screen and (min-width: 456px) {
-  .text-overlay {
-    position: absolute; /* Positionnement absolu pour superposer le texte */
-    top: 50%; /* Centrer verticalement */
-    left: 50%; /* Centrer horizontalement */
-    transform: translate(-50%, -50%); /* Ajustement pour le centrer parfaitement */
-    text-align: center; /* Centrer le texte */
-    padding: 25px;
-
-    background: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.496);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(4px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 10px;
-  }
+.card_trails {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: lightgray 0 5px 10px 0;
+  position: relative; /* Ajouté pour le positionnement de .fav-btn-container */
+  padding-bottom: 60px; /* Ajoute un espace en bas pour éviter le chevauchement */
+  max-width: 600px;
+  min-height: 420px !important;
+  height: auto;
+  margin: 0 auto;
 }
 
 /* ----------------------- */
@@ -50,46 +70,29 @@
 
 /* ----------------------- */
 
-@media screen and (max-width: 456px) {
-  .trails-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 15px;
-    margin: 40px;
-  }
-}
-
-@media screen and (min-width: 456px) {
-  .trails-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: center;
-    gap: 15px;
-    margin: 40px;
-  }
-}
-
-.card_trails {
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: lightgray 0 5px 10px 0;
-  position: relative; /* Ajouté pour le positionnement de .fav-btn-container */
-  padding-bottom: 60px; /* Ajoute un espace en bas pour éviter le chevauchement */
-}
 .pic-trails {
   width: 100%;
 }
-.card_top {
+
+.card_top h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
   text-align: center;
+  padding: 0 2vw;
 }
+
 .card_details {
   display: flex;
   justify-self: center;
   align-items: center;
 }
 .card_details > div > img {
-  width: 25%;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
 }
 .lenght_trails,
 .difficulty_trails,
@@ -146,10 +149,10 @@
   transform: translateY(0px);
 }
 
-.fav-btn-add{
+.fav-btn-add {
   opacity: 0.2;
 }
 
-.hiking-btn-add{
+.hiking-btn-add {
   opacity: 0.2;
 }

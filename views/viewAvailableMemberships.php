@@ -8,25 +8,23 @@
     <title>Abonnements Disponibles</title>
 </head>
 <body>
-    <header>
-        <?php include "components/_header.php"; ?>
-    </header>
-
-
     <?php if (isset($message)): ?>
         <div class="message">
             <?php echo htmlspecialchars($message); ?>
         </div>
     <?php endif; ?>
-
-    
     <main>
-        <h1>Nos abonnements</h1>
-
+        <section>
+            <div class="hero-page">
+                <header><?php include "components/_header.php"; ?></header>    
+                <hgroup class="text-overlay">
+                <h1 class="title-page">Nos abonnements</h1>
+                <p><strong>Carte d'adhésion du Parc National des Calanques : Profitez de la nature tout en économisant !</strong></p>
+                </hgroup>
+            </div>
+        </section>
         <section>  
             <h2>Cartes d'adhésion</h2>
-        
-            <p><strong>Carte d'adhésion du Parc National des Calanques : Profitez de la nature tout en économisant !</strong></p>
             <p>
                 Le Parc National des Calanques, célèbre pour ses paysages époustouflants et ses richesses naturelles,
                 vous propose une carte d'adhésion unique avec abonnement. En tant que membre, vous bénéficiez d'avantages
@@ -76,7 +74,7 @@
         </section>
 
         
-        <h2>Sourscrire à un abonnement</h2>
+        <h2 style="text-align: center">Sourscrire à un abonnement</h2>
         <div class="card_ship_container">
             <?php foreach ($memberships as $membership): ?>
                 <div class="card_ship">

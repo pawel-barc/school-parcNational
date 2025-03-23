@@ -33,24 +33,24 @@
                     <p>Filtrer par :</p>
                     <!-- Filtre par ressources-->
                     <div class="dropdown">
-                    <button class="dropdown-btn">
-                        <img src="assets/icon/type.svg" alt="Icon types de ressources">
-                        <div>Ressources</div>
-                        <img src="assets/icon/arrow-drop-down.svg" alt="icon arrow down">
-                    </button>
-                    <div class="dropdown-content">
-                        <input class="ressources" type="checkbox" id="tag-terrestre" name="tag" value="Terrestre">
-                        <label for="tag-terrestre">Terrestres</label><br>
+                        <button class="dropdown-btn">
+                            <img src="assets/icon/type.svg" alt="Icon types de ressources">
+                            <div>Ressources</div>
+                            <img src="assets/icon/arrow-drop-down.svg" alt="icon arrow down">
+                        </button>
+                        <div class="dropdown-content">
+                            <input class="ressources" type="checkbox" id="tag-terrestre" name="tag" value="Terrestre">
+                            <label for="tag-terrestre">Terrestres</label><br>
 
-                        <input class="ressources" type="checkbox" id="tag-marine" name="tag" value="Marine">
-                        <label for="tag-marine">Marines</label><br>
+                            <input class="ressources" type="checkbox" id="tag-marine" name="tag" value="Marine">
+                            <label for="tag-marine">Marines</label><br>
 
-                        <input class="ressources" type="checkbox" id="tag-flore" name="tag" value="Flore">
-                        <label for="tag-flore">Flore</label><br>
+                            <input class="ressources" type="checkbox" id="tag-flore" name="tag" value="Flore">
+                            <label for="tag-flore">Flore</label><br>
 
-                        <input class="ressources" type="checkbox" id="tag-faune" name="tag" value="Faune">
-                        <label for="tag-faune">Faune</label><br>
-                    </div>
+                            <input class="ressources" type="checkbox" id="tag-faune" name="tag" value="Faune">
+                            <label for="tag-faune">Faune</label><br>
+                        </div>
                     </div>
 
 
